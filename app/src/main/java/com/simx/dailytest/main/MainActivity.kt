@@ -31,15 +31,18 @@ class MainActivity : AppCompatActivity(),MainPresenter, AdapterAlbum.OnAdapterCl
         vm = MainVM(this, CompositeDisposable())
         binding.setLifecycleOwner(this)
         binding.mainVm = vm
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = "ALBUM"
         adapterAlbum = AdapterAlbum(listOf(),this)
         initRcv()
+        vm.getAlbum()
 
     }
 
     private fun initRcv() {
         binding.rcvAlbum.setHasFixedSize(true)
         binding.rcvAlbum.itemAnimator = DefaultItemAnimator()
-        binding.rcvAlbum.layoutManager = GridLayoutManager(this,2)
+        binding.rcvAlbum.layoutManager = GridLayoutManager(this,2) as GridLayoutManager
         binding.rcvAlbum.adapter = adapterAlbum
 
     }

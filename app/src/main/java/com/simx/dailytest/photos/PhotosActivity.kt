@@ -6,6 +6,8 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
 import com.simx.dailytest.R
 import com.simx.dailytest.data.models.Photos
 import com.simx.dailytest.databinding.PhotosActivityBinding
@@ -33,6 +35,15 @@ class PhotosActivity : AppCompatActivity(),PhotoPresenter, AdapterPhotos.OnAdapt
         adapterPhotos = AdapterPhotos(listOf(),this)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "PHOTOS"
+        initRcv()
+    }
+
+    private fun initRcv() {
+        binding.rcvPhoto.setHasFixedSize(true)
+        binding.rcvPhoto.layoutManager = GridLayoutManager(this@PhotosActivity,2)
+        binding.rcvPhoto.itemAnimator = DefaultItemAnimator()
+        binding.rcvPhoto.adapter = adapterPhotos
     }
 
     override fun showError(message: String?) {
