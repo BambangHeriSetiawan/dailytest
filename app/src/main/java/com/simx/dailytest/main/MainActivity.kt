@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity(),MainPresenter, AdapterAlbum.OnAdapterCl
         vm = MainVM(this, CompositeDisposable())
         binding.setLifecycleOwner(this)
         binding.mainVm = vm
+        vm.isShowProgress.set(false)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = "ALBUM"
         adapterAlbum = AdapterAlbum(listOf(),this)

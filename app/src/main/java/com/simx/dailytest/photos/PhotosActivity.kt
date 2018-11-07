@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.simx.dailytest.R
 import com.simx.dailytest.data.models.Photos
 import com.simx.dailytest.databinding.PhotosActivityBinding
+import com.simx.dailytest.photos.dialog.DialogPhotoDetail
 import io.reactivex.disposables.CompositeDisposable
 
 class PhotosActivity : AppCompatActivity(),PhotoPresenter, AdapterPhotos.OnAdapterClickListener {
     override fun onPhotoliked(photos: Photos) {
-
+        val dialog = DialogPhotoDetail(photos)
+        dialog.show(supportFragmentManager,photos.title)
     }
 
 
@@ -28,6 +30,7 @@ class PhotosActivity : AppCompatActivity(),PhotoPresenter, AdapterPhotos.OnAdapt
         vm = PhotoActivityVM(this, CompositeDisposable())
         binding.setLifecycleOwner(this)
         binding.photoVM = vm
+        vm.isShowProgress.set(false)
         if (intent?.extras !=null){
             val albumId = intent?.extras?.getInt("id")
             vm.getListPhoto(albumId!!)
