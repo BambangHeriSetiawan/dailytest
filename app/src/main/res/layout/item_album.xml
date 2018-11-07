@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:bind="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="albumVm" type="com.simx.dailytest.main.ItemAlbumViewModel"/>
     </data>
@@ -10,8 +10,8 @@
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content">
             <ImageView android:id="@+id/img"
+                       bind:image_assets="@{albumVm.image}"
                        android:padding="2dp"
-                       android:src="@drawable/placeholder"
                        android:layout_width="50dp"
                        android:layout_height="50dp"/>
             <TextView android:layout_toEndOf="@id/img"

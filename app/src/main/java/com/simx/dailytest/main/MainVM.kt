@@ -1,11 +1,15 @@
 package com.simx.dailytest.main
 
 import androidx.databinding.BaseObservable
+import androidx.databinding.ObservableField
+import com.simx.dailytest.R
 import com.simx.dailytest.data.Repository
 import io.reactivex.disposables.CompositeDisposable
 
 class MainVM(private var presenter: MainPresenter,
              private var compositeDisposable: CompositeDisposable):BaseObservable() {
+
+
     fun getAlbum(){
         compositeDisposable.add(
             Repository.getAlbum()!!.subscribe(
