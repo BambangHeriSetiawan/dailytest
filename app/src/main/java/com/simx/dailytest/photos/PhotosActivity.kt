@@ -23,7 +23,7 @@ class PhotosActivity : AppCompatActivity(),PhotoPresenter, AdapterPhotos.OnAdapt
 
     private lateinit var binding:PhotosActivityBinding
     private lateinit var vm:PhotoActivityVM
-    lateinit var adapterPhotos: AdapterPhotos
+    private lateinit var adapterPhotos: AdapterPhotos
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.photos_activity)

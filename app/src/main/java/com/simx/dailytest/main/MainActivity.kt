@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(),MainPresenter, AdapterAlbum.OnAdapterCl
 
     private lateinit var binding:MainActivityBinding
     private lateinit var vm:MainVM
-    lateinit var adapterAlbum: AdapterAlbum
+    private lateinit var adapterAlbum: AdapterAlbum
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
