@@ -19,6 +19,7 @@ class DialogPhotoDetail  constructor(var photos: Photos):DialogFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.dialog_detail_photo, container,false)
         vm = DialogPhotoViewModel()
         binding.dialogVm = vm
+        dialog.setTitle(photos.title)
         vm.image.set(photos.url)
         binding.setLifecycleOwner(this)
         binding.dialogVm = vm

@@ -10,6 +10,7 @@ class BindAdapter {
         @BindingAdapter("bind:image_url") @JvmStatic
         fun loadImage(imageView: ImageView, url:String){
             GlideApp.with(imageView.context).load(url).error(R.drawable.placeholder).centerCrop().into(imageView)
+
         }
         @BindingAdapter("bind:image_assets") @JvmStatic
         fun loadImage(imageView: ImageView, url:Int){

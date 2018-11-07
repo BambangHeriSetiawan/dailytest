@@ -16,6 +16,9 @@ import retrofit2.http.Headers
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
+
+
+
 interface API {
     @Headers("Accept: application/json", "Content-type: application/json")
     @GET("albums")
@@ -47,12 +50,14 @@ interface API {
          * @return
          */
         fun getRetrofitConfig(): Retrofit {
+
             return Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client())
                 .build()
+
         }
 
         /**
@@ -61,17 +66,16 @@ interface API {
          */
         private fun client(): OkHttpClient {
             return OkHttpClient.Builder()
-                .readTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60 , TimeUnit.SECONDS)
                 .connectTimeout(60, TimeUnit.SECONDS)
+                .followRedirects(true)
+                .followSslRedirects(true)
+                .retryOnConnectionFailure(true)
                 .addInterceptor(
                     HttpLoggingInterceptor()
-                    .setLevel(HttpLoggingInterceptor.Level.BODY)
-                )
-
-                .build()
+                        .setLevel(HttpLoggingInterceptor.Level.BODY)
+                ).build()
         }
-
-
 
 
     }
