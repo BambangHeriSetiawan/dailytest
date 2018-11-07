@@ -20,7 +20,6 @@ class DialogPhotoDetail  constructor(var photos: Photos):DialogFragment() {
         vm = DialogPhotoViewModel()
         binding.dialogVm = vm
         vm.image.set(photos.url)
-        dialog.setTitle(photos.title)
         binding.setLifecycleOwner(this)
         binding.dialogVm = vm
         return binding.root
