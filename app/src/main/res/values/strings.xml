@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DailyTest</string>
+    <string name="data_not_found">Tidak ada data ditemukan</string>
+</resources>

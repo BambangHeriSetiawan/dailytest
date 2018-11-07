@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="albumVm" type="com.simx.dailytest.main.ItemAlbumViewModel"/>
+    </data>
+    <com.google.android.material.card.MaterialCardView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+            <ImageView android:id="@+id/img"
+                       android:padding="2dp"
+                       android:src="@drawable/placeholder"
+                       android:layout_width="50dp"
+                       android:layout_height="50dp"/>
+            <TextView android:layout_toEndOf="@id/img"
+                      android:padding="2dp"
+                      android:text="@{albumVm.title}"
+                      android:layout_centerInParent="true"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
